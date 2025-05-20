@@ -15,6 +15,7 @@
     <modules>
         <module>booking-dto</module>
         <module>booking-entity</module>
+        <module>booking-security</module>
     </modules>
 
     <properties>
@@ -29,7 +30,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>3.3.5</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -46,9 +47,19 @@
                 <version>1.0.0</version>
             </dependency>
             <dependency>
+                <groupId>com.booking</groupId>
+                <artifactId>booking-api</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.booking</groupId>
+                <artifactId>booking-security</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.30</version> <!-- Or latest stable -->
+                <version>1.18.30</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
