@@ -2,6 +2,7 @@ package com.booking.bookingapi.controller;
 
 import com.booking.bookingapi.service.HotelService;
 import com.booking.dto.HotelDTO;
+import com.booking.entity.stays.hotel.Hotel;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,13 @@ public class HotelController {
 
     private final HotelService hotelService;
 
-    @GetMapping("/{cityId}")
-    public ResponseEntity<List<HotelDTO>> getHotelsByContinent(@PathVariable("cityId") Long cityId) {
+    @GetMapping("/continents/{continentId}")
+    public ResponseEntity<List<HotelDTO>> getHotelsByContinent(@PathVariable("continentId") Long continentId) {
+        return ResponseEntity.ok(hotelService.getHotelsByContinent(continentId));
+    }
+
+    @GetMapping("/cities/{cityId}")
+    public ResponseEntity<List<HotelDTO>> getHotelsByCity(@PathVariable("cityId") Long cityId) {
         return ResponseEntity.ok(hotelService.getHotelsByCity(cityId));
     }
 }
