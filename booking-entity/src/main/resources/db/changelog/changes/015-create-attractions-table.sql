@@ -9,6 +9,8 @@ create table attractions(
     image_url varchar(255) ,
     additional_info text ,
     city_id bigint,
-    constraint fk_city_attraction foreign key (city_id) references cities (id)
+    category_id bigint ,
+    constraint fk_city_attraction foreign key (city_id) references cities (id) ,
+    constraint fk_category_attraction foreign key (category_id) references categories (id)
 );
 alter table attractions owner to root;

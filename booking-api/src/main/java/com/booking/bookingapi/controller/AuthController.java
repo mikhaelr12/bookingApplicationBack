@@ -25,7 +25,8 @@ public class AuthController {
     private final JwtService jwtService;
 
     @PostMapping("/register")
-    @Operation(summary = "User register", description = "Register a new user")
+    @Operation(summary = "User register", description = "Register a new user, name - unique, req;" +
+            " pass - req; email - unique, req; phone - unique, req")
     public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
         try {
             authService.register(userDTO);
@@ -38,7 +39,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    @Operation(summary = "User login", description = "Existing user log in")
+    @Operation(summary = "User login", description = "Existing user log in, just username and password")
     public ResponseEntity<LoginResponse> login(@RequestBody UserDTO userDTO) {
         User authenticatedUser = authService.login(userDTO);
         String token = jwtService.generateToken(authenticatedUser);

@@ -24,6 +24,9 @@ public abstract class BaseReview {
     @Column(name = "review_date", nullable = false)
     private LocalDate reviewDate;
 
+    @Column(name = "checked")
+    private Boolean checked = false;
+
     @ManyToOne
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_br"))
     private User user;

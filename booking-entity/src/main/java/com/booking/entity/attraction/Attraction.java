@@ -1,5 +1,6 @@
 package com.booking.entity.attraction;
 
+import com.booking.entity.Category;
 import com.booking.entity.country.City;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -42,4 +43,8 @@ public class Attraction {
     @ManyToOne
     @JoinColumn(name = "city_id", foreignKey = @ForeignKey(name = "fk_city_attraction"))
     private City city;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_category_attraction"))
+    private Category category;
 }

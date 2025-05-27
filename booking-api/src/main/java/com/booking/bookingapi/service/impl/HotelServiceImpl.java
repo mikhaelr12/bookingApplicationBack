@@ -41,15 +41,17 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<HotelDTO> getHotelsByContinent(Long continentId) {
-        List<Country> countries = countryRepository.findAllByContinentId(continentId);
+        List<Country> countries = countryRepository.findAllByContinentId(continentId)
+                .stream()
+                .limit(5)
+                .toList();
         List<HotelDTO> result = new ArrayList<>();
 
         for (Country country : countries) {
             List<City> cities = cityRepository.findAllByCountryId(country.getId());
 
-            // Get all hotels in those cities
             List<HotelDTO> hotelsInCountry = hotelRepository.findAllByCityIn(cities).stream()
-                    .limit(3) // take first 3 per country
+                    .limit(1)
                     .map(h -> HotelDTO.builder()
                             .id(h.getId())
                             .name(h.getHotelName())

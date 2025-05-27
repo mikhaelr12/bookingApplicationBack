@@ -19,13 +19,13 @@ public class HotelController {
 
     private final HotelService hotelService;
 
-    @GetMapping("/continents/{continentId}")
-    @Operation(summary = "Get hotels by continent", description = "Return list of some hotels from a continent")
+    @GetMapping("/continent/{continentId}")
+    @Operation(summary = "Get hotels by continent", description = "Return list o a hotel from each country in the continent")
     public ResponseEntity<List<HotelDTO>> getHotelsByContinent(@PathVariable("continentId") Long continentId) {
         return ResponseEntity.ok(hotelService.getHotelsByContinent(continentId));
     }
 
-    @GetMapping("/cities/{cityId}")
+    @GetMapping("/city/{cityId}")
     @Operation(summary = "Get hotels by city", description = "Return all hotels from a city")
     public ResponseEntity<List<HotelDTO>> getHotelsByCity(@PathVariable("cityId") Long cityId) {
         return ResponseEntity.ok(hotelService.getHotelsByCity(cityId));

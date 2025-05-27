@@ -7,10 +7,10 @@ WITH
     series AS (                          -- 1 … 10  (10 apartamente per oraș)
         SELECT generate_series(1,10) AS n
     ),
-    cat AS (                             -- categoria „Stays”
+    cat AS (                             -- categoria „Apartments”
         SELECT id AS category_id
         FROM   categories
-        WHERE  category_name = 'Stays'
+        WHERE  category_name = 'Apartments'
     LIMIT  1
     )
 
