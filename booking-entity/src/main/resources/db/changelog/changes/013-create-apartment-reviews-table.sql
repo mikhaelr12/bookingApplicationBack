@@ -1,8 +1,9 @@
 create table apartment_reviews(
     id bigint primary key default nextval('review_id_seq'),
-    text varchar(1000) ,
+    review_text varchar(1000) ,
     rating decimal(3,1) not null ,
     review_date date ,
+    checked boolean default false,
     user_id bigint,
     apartment_id bigint ,
     constraint fk_user_apr foreign key (user_id) references users (id) ,

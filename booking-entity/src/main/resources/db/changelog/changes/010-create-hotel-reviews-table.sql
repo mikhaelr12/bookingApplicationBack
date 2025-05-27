@@ -6,6 +6,7 @@ create table hotel_reviews(
     review_text varchar(1000) ,
     rating decimal(3,1) not null ,
     review_date date not null ,
+    checked boolean default false,
     user_id bigint ,
     hotel_id bigint ,
     constraint fk_user_hr foreign key (user_id) references users (id) ,

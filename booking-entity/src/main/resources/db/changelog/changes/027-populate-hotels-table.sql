@@ -33,7 +33,7 @@ FROM (
 CROSS JOIN LATERAL (
 SELECT id
 FROM   categories
-WHERE  category_name = 'Stays'
+WHERE  category_name = 'Hotels'
     LIMIT  1
     ) AS cat;
 
@@ -72,7 +72,7 @@ FROM (
 CROSS JOIN LATERAL (
 SELECT id
 FROM   categories
-WHERE  category_name = 'Stays'
+WHERE  category_name = 'Hotels'
     LIMIT  1
     ) AS cat;
 
@@ -111,7 +111,7 @@ FROM (
 CROSS JOIN LATERAL (
 SELECT id
 FROM   categories
-WHERE  category_name = 'Stays'
+WHERE  category_name = 'Hotels'
     LIMIT  1
     ) AS cat;
 
@@ -133,7 +133,7 @@ FROM (VALUES
           ('Gallus City Hotel',               'Kleyerstraße 15',       8.1, '/img/hotels/gallus_city.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Frankfurt' LIMIT 1)  AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Cologne
@@ -153,7 +153,7 @@ FROM (VALUES
           ('Chlodwigplatz Loft Hotel',       'Chlodwigplatz 2',       7.8, '/img/hotels/chlodwigplatz_loft.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Cologne' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Paris
@@ -173,7 +173,7 @@ FROM (VALUES
           ('Orly Airport Stay',            'Aéroport d\Orly',       7.5, '/img/hotels/paris_orly.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Paris' LIMIT 1)  AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Marseille
@@ -193,7 +193,7 @@ FROM (VALUES
   ('Marseille Airport Stay',       'Aéroport MP2',           7.4, '/img/hotels/marseille_airport.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Marseille' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Lyon
@@ -213,7 +213,7 @@ FROM (VALUES
   ('Lyon Airport Stay',            'Aéroport Saint-Exupéry', 7.4, '/img/hotels/lyon_airport.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Lyon' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Toulouse
@@ -233,7 +233,7 @@ FROM (VALUES
           ('Toulouse Airport Stay',        'Aéroport de Blagnac',    7.4, '/img/hotels/toulouse_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Toulouse' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Nice
@@ -253,7 +253,7 @@ FROM (VALUES
           ('Fabron Beach Resort',          'Avenue de Fabron 30',      7.7, '/img/hotels/nice_fabron.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Nice' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 /* ================================================================
    10 hoteluri în Rome
    ================================================================ */
@@ -272,7 +272,7 @@ FROM (VALUES
           ('Fiumicino Airport Stay',      'Aeroporto FCO',             7.4, '/img/hotels/rome_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Rome' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Milan
@@ -292,7 +292,7 @@ FROM (VALUES
           ('Sempione Park Garden Inn',    'Viale Gadio 2',            8.1, '/img/hotels/milan_sempione.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Milan' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Naples
@@ -312,7 +312,7 @@ FROM (VALUES
   ('Fuorigrotta Urban Hotel',      'Viale Marconi 25',        7.7, '/img/hotels/naples_fuorigrotta.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Naples' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Florence
@@ -332,7 +332,7 @@ FROM (VALUES
           ('Boboli Gardens Residence',    'Via de Serragli 110',    7.8, '/img/hotels/florence_boboli.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Florence' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Venice
@@ -352,7 +352,7 @@ FROM (VALUES
           ('Sant Elena Park Inn',         'Viale Doge 10',           7.6, '/img/hotels/venice_santelena.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Venice' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Madrid
@@ -372,7 +372,7 @@ FROM (VALUES
   ('Casa de Campo Garden Inn',     'Paseo de la Puerta 10',   7.7, '/img/hotels/madrid_casacampo.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Madrid' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Barcelona
@@ -392,7 +392,7 @@ FROM (VALUES
   ('El Prat Airport Stay',         'Aeroporto BCN',           7.5, '/img/hotels/barcelona_airport.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Barcelona' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Valencia
@@ -412,7 +412,7 @@ FROM (VALUES
           ('Valencia Airport Stay',         'Aeroporto VLC',                   7.4,'/img/hotels/valencia_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Valencia' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Seville
@@ -432,7 +432,7 @@ FROM (VALUES
           ('Maria Luisa Park Inn',         'Paseo de las Delicias 20',7.6,'/img/hotels/seville_park.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Seville' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Bilbao
@@ -452,7 +452,7 @@ FROM (VALUES
           ('Artxanda Hill Residence',      'Camino Enekuri-Artxanda 30',7.4,'/img/hotels/bilbao_artxanda.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Bilbao' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 
 /* ================================================================
@@ -473,7 +473,7 @@ FROM (VALUES
           ('Leidseplein Loft',               'Leidseplein 9',         7.8, '/img/hotels/leidseplein_loft.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Amsterdam' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Rotterdam
@@ -493,7 +493,7 @@ FROM (VALUES
           ('Ahoy Arena Stay',                'Zuidplein 60',          7.7, '/img/hotels/ahoy_arena.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Rotterdam' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în The Hague
@@ -513,7 +513,7 @@ FROM (VALUES
           ('Clingendael Country Lodge',      'Wassenaarseweg 40',     7.7, '/img/hotels/clingendael_lodge.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'The Hague' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    10 hoteluri în Utrecht
@@ -533,7 +533,7 @@ FROM (VALUES
           ('Vaartsche Rijn Harbor Hotel',   'Heuveloord 10',       7.6, '/img/hotels/utrecht_vaartsche.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Utrecht' LIMIT 1)  AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -554,7 +554,7 @@ FROM (VALUES
           ('Genneper Parken Lodge',         'Genneperweg 8',        7.5, '/img/hotels/eindhoven_genneper.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Eindhoven' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -575,7 +575,7 @@ FROM (VALUES
   ('Canal District Loft',           'Quai des Charbonnages 30',7.6, '/img/hotels/brussels_canal.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Brussels' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -596,7 +596,7 @@ FROM (VALUES
   ('Linkeroever Park Inn',          'Frederik van Eedenplein 10',7.6,'/img/hotels/antwerp_park.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Antwerp' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -617,7 +617,7 @@ FROM (VALUES
   ('Sint-Baafs Cathedral View',     'Sint-Baafsplein 3',      7.8, '/img/hotels/ghent_cathedral.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Ghent' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -638,7 +638,7 @@ FROM (VALUES
   ('Sint-Michiels Country Inn',     'Gistelse Steenweg 100',  7.5, '/img/hotels/bruges_michiels.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Bruges' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -659,7 +659,7 @@ FROM (VALUES
           ('Monceau-sur-Sambre Residence',  'Rue de Monceau 40',      7.2, '/img/hotels/charleroi_monceau.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Charleroi' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -680,7 +680,7 @@ FROM (VALUES
           ('Kista Tech Park Hotel',         'Kistagången 15',        7.8, '/img/hotels/stockholm_kista.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Stockholm' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Gothenburg
@@ -700,7 +700,7 @@ FROM (VALUES
           ('Slottsskogen Garden Hotel',     'Vegagatan 21',          7.6, '/img/hotels/gothenburg_slottsskogen.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Gothenburg' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Malmö
@@ -720,7 +720,7 @@ FROM (VALUES
           ('Sturup Airport Stay',           'Airport MMX',           7.4, '/img/hotels/malmo_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Malmö' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Uppsala
@@ -740,7 +740,7 @@ FROM (VALUES
           ('Uppsala Airport Stay',          'Ärna Airport',          7.4, '/img/hotels/uppsala_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Uppsala' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Västerås
@@ -760,7 +760,7 @@ FROM (VALUES
           ('Hässlö Airport Stay',           'Airport VST',           7.3, '/img/hotels/vasteras_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Västerås' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Warsaw
@@ -780,7 +780,7 @@ FROM (VALUES
           ('Łazienki Park Residence',       'Agrykola 4',             7.8, '/img/hotels/warsaw_lazienki.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Warsaw' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Kraków
@@ -800,7 +800,7 @@ FROM (VALUES
           ('Błonia Park Residence',         'Aleja 3 Maja 30',        7.6, '/img/hotels/krakow_blonia.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Kraków' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Gdańsk
@@ -820,7 +820,7 @@ FROM (VALUES
           ('Amber Museum Residence',        'Ulica Mariacka 1',       7.5,'/img/hotels/gdansk_amber.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Gdańsk' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Wrocław
@@ -840,7 +840,7 @@ FROM (VALUES
           ('Hydropolis Residence',         'Na Grobli 15',           7.5,'/img/hotels/wroclaw_hydropolis.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Wrocław' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Poznań
@@ -860,7 +860,7 @@ FROM (VALUES
           ('Poznań Zoo Garden Inn',         'Krańcowa 80',            7.4,'/img/hotels/poznan_zoo.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Poznań' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat;
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat;
 
 /* ================================================================
    Bucharest
@@ -880,7 +880,7 @@ FROM (VALUES
           ('Tineretului Park Inn',         'Bd. Tineretului 30',       7.7, '/img/hotels/bucharest_tineretului.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Bucharest' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays'  LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels'  LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -901,7 +901,7 @@ FROM (VALUES
           ('Avram Iancu Airport Stay',     'Aeroport CLJ',             7.4,'/img/hotels/cluj_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Cluj-Napoca' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -922,7 +922,7 @@ FROM (VALUES
           ('Roses Park Residence',         'Bd. Mihai Viteazul 10',    7.8,'/img/hotels/timisoara_roses.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Timișoara' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -943,7 +943,7 @@ FROM (VALUES
           ('Bahlui Riverside Hotel',       'Str. Sf. Lazăr 25',       7.9,'/img/hotels/iasi_bahlui.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Iași' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -964,7 +964,7 @@ FROM (VALUES
           ('Lake Siutghiol Residence',     'Bd. Mamaia 90',           7.5,'/img/hotels/constanta_siutghiol.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Constanța' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -985,7 +985,7 @@ FROM (VALUES
           ('Mount Lycabettus View',        'Lycabettus Hill Path',    8.1,'/img/hotels/athens_lycabettus.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Athens' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1006,7 +1006,7 @@ FROM (VALUES
           ('Thermi Garden Hotel',          'Georgikis Scholis 150',   7.4,'/img/hotels/thes_thermi.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Thessaloniki' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1027,7 +1027,7 @@ FROM (VALUES
           ('Achaia Clauss Winery Inn',     'Petroto 50',              7.3,'/img/hotels/patras_winery.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Patras' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1048,7 +1048,7 @@ FROM (VALUES
           ('Cretaquarium Seaside Lodge',   'Gournes 25',              7.4,'/img/hotels/heraklion_cretaqua.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Heraklion' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1069,7 +1069,7 @@ FROM (VALUES
           ('Olympus View Residence',       'Elassona 30',             7.4,'/img/hotels/larissa_olympus.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Larissa' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1090,7 +1090,7 @@ FROM (VALUES
           ('Ueno Park Riverside Inn',      'Ueno 7-1-1',           8.1, '/img/hotels/tokyo_ueno.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Tokyo'  LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1111,7 +1111,7 @@ FROM (VALUES
           ('Sumiyoshi Riverside Residence', 'Sumiyoshi 3-9-8',      7.8, '/img/hotels/osaka_sumiyoshi.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Osaka'  LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1132,7 +1132,7 @@ FROM (VALUES
           ('Katsura River Country Inn',     'Katsuramisono 3-2',     7.8, '/img/hotels/kyoto_katsura.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Kyoto'  LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1153,7 +1153,7 @@ FROM (VALUES
           ('Zoorasia Safari Lodge',         'Kaminokichō 1175-1',    7.6, '/img/hotels/yokohama_zoo.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Yokohama' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1174,7 +1174,7 @@ FROM (VALUES
           ('New Chitose Airport Stay',      'Airport CTS',           7.5,'/img/hotels/sapporo_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Sapporo' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1195,7 +1195,7 @@ FROM (VALUES
           ('Capital Airport Stay',          'PEK Airport',            7.7,'/img/hotels/beijing_airport.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Beijing' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1216,7 +1216,7 @@ FROM (VALUES
           ('French Concession Loft',        'Wukang Rd 76',           7.8,'/img/hotels/shanghai_french.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Shanghai' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1237,7 +1237,7 @@ FROM (VALUES
           ('Panyu Country Resort',          'Shawan 99',              7.6,'/img/hotels/gz_panyu.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Guangzhou' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1258,7 +1258,7 @@ FROM (VALUES
  ('Dapeng Peninsula Inn',          'Pengcheng 218',          7.5,'/img/hotels/sz_dapeng.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Shenzhen' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1279,7 +1279,7 @@ FROM (VALUES
  ('East Gate Forest Park Lodge',   'Huancheng Rd 60',        7.6,'/img/hotels/cd_forest.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Chengdu' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1300,7 +1300,7 @@ FROM (VALUES
           ('Staten Island Seaside',    'Bay St 100',             7.7, '/img/hotels/ny_staten.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'New York'  LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1321,7 +1321,7 @@ FROM (VALUES
           ('Long Beach Harbor Inn',       'Shoreline Dr 200',     7.7,'/img/hotels/la_longbeach.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Los Angeles' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1342,7 +1342,7 @@ FROM (VALUES
  ('Lincoln Park Zoo Inn',       'N Cannon 300',           7.8,'/img/hotels/chi_lincoln.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Chicago' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1363,7 +1363,7 @@ FROM (VALUES
  ('Kemah Boardwalk Resort',     'Kipp Ave 215',           7.5,'/img/hotels/hou_kemah.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Houston' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1384,7 +1384,7 @@ FROM (VALUES
  ('Key Biscayne Seaside',        'Crandon Blvd 7200',      7.6,'/img/hotels/miami_key.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Miami' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1405,7 +1405,7 @@ FROM (VALUES
  ('Rogers Centre Suites',         'Bremner Blvd 1',         8.2,'/img/hotels/tor_rogers.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Toronto' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1426,7 +1426,7 @@ FROM (VALUES
  ('Capilano Suspension Inn',      'Capilano Rd 3735',       7.7,'/img/hotels/van_capilano.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Vancouver' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1447,7 +1447,7 @@ FROM (VALUES
  ('La Ronde Island Inn',          'Parc Jean-Drapeau',      7.7,'/img/hotels/mtl_laronde.jpg')
 ) AS t(hotel_name,address,rating,img_url)
 CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Montreal' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1468,7 +1468,7 @@ FROM (VALUES
           ('Heritage Park Garden',         'Heritage Dr 1900',       7.5,'/img/hotels/cgy_heritage.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Calgary' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1489,7 +1489,7 @@ FROM (VALUES
           ('Orleans Country Inn',          'St Joseph Blvd 2500',    7.5,'/img/hotels/ott_orleans.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Ottawa' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1510,7 +1510,7 @@ FROM (VALUES
           ('Santa Fe Business Hotel',     'Av. Vasco de Quiroga 3900',7.9,'/img/hotels/cdmx_santafe.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Mexico City' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1531,7 +1531,7 @@ FROM (VALUES
           ('Mirador Independencia Inn',   'Carretera a Saltillo 500',7.6, '/img/hotels/gdl_mirador.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Guadalajara' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1552,7 +1552,7 @@ FROM (VALUES
           ('Chipinque Mountain Inn',      'Carretera a Chipinque 1', 7.6, '/img/hotels/mty_chipinque.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Monterrey' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1573,7 +1573,7 @@ FROM (VALUES
           ('Atlixco Country Hotel',       'Carr. Atlixco 20',        7.5,'/img/hotels/pue_atlixco.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Puebla' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1594,7 +1594,7 @@ FROM (VALUES
           ('Chapultepec Urban Hotel',     'Calz. Universidad 1500',  7.5,'/img/hotels/tij_chapultepec.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Tijuana' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1615,7 +1615,7 @@ FROM (VALUES
           ('Cantareira Mountain Inn',      'Estr. Sta. Inês 500',    7.7,'/img/hotels/sp_cantareira.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'São Paulo' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1636,7 +1636,7 @@ FROM (VALUES
           ('Ilha Grande Seaside',          'Abraão 1',               7.7,'/img/hotels/rio_ilha.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Rio de Janeiro' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1657,7 +1657,7 @@ FROM (VALUES
           ('UNB Garden Hotel',               'Campus Darcy Ribeiro',7.6,'/img/hotels/bra_unb.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Brasília' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1678,7 +1678,7 @@ FROM (VALUES
           ('Praia do Forte Resort',         'Av. do Farol 100',       7.6,'/img/hotels/sal_forte.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Salvador' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1699,7 +1699,7 @@ FROM (VALUES
           ('Jericoacoara Seaside Inn',     'Rua Principal 20',        7.6,'/img/hotels/for_jeri.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Fortaleza' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1720,7 +1720,7 @@ FROM (VALUES
           ('Tigre Delta Resort',            'Río Sarmiento 100',         7.6,'/img/hotels/ba_tigre.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Buenos Aires' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays'      LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels'      LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1741,7 +1741,7 @@ FROM (VALUES
           ('Carlos Paz Lake Resort',        'Av. Libertad 300',          7.5,'/img/hotels/cordoba_vcp.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Córdoba' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1762,7 +1762,7 @@ FROM (VALUES
           ('La Florida Beach Hotel',        'Av. Carrasco 100',        7.5,'/img/hotels/ros_florida.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Rosario' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1783,7 +1783,7 @@ FROM (VALUES
           ('Valle de Uco Country',           'Ruta 94 KM 88',         7.5,'/img/hotels/mdz_uco.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Mendoza' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1804,7 +1804,7 @@ FROM (VALUES
           ('Berisso Riverside Hotel',       'Av. Montevideo 1200',    7.5,'/img/hotels/lp_berisso.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'La Plata' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1825,7 +1825,7 @@ FROM (VALUES
           ('Cradle of Humankind Inn',       'R400 Kromdraai',         7.6,'/img/hotels/job_cradle.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Johannesburg' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1846,7 +1846,7 @@ FROM (VALUES
           ('Blouberg Kite Resort',         'Marine Dr 200',           7.7,'/img/hotels/ct_blouberg.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Cape Town' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1867,7 +1867,7 @@ FROM (VALUES
           ('Valley of 1000 Hills Inn',     'Old Main Rd 450',         7.6,'/img/hotels/dbn_valley.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Durban' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1888,7 +1888,7 @@ FROM (VALUES
           ('Cullinan Diamond Inn',         'Oak Ave 1',               7.6,'/img/hotels/pre_cullinan.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Pretoria' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1909,7 +1909,7 @@ FROM (VALUES
           ('Seaview Predator Park',        'Grunon Rd 1',             7.5,'/img/hotels/pe_seaview.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Port Elizabeth' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1930,7 +1930,7 @@ FROM (VALUES
           ('Ngong Hills Country Inn',      'Ngong Rd Km 12',        7.6,'/img/hotels/nbo_ngong.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Nairobi' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays'  LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels'  LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1951,7 +1951,7 @@ FROM (VALUES
           ('Haller Park Residence',        'Mombasa–Malindi Rd 31', 7.6,'/img/hotels/msa_haller.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Mombasa' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1972,7 +1972,7 @@ FROM (VALUES
           ('Hippo Point Resort',           'Kisian Beach',          7.5,'/img/hotels/kis_hippo.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Kisumu' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -1993,7 +1993,7 @@ FROM (VALUES
           ('Elementaita Seaside',          'B4 Hwy Km 20',           7.5,'/img/hotels/nku_elementaita.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Nakuru' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2014,7 +2014,7 @@ FROM (VALUES
           ('Nandi Hills Retreat',          'C36 Hwy Km 30',           7.4,'/img/hotels/eld_nandi.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Eldoret' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2035,7 +2035,7 @@ FROM (VALUES
           ('Blue Mountains Retreat',       'Echo Point Rd 1',        7.8,'/img/hotels/syd_blue.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Sydney' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2056,7 +2056,7 @@ FROM (VALUES
           ('Great Ocean Road Lodge',       'GOR Km 150',             7.7,'/img/hotels/mel_gor.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Melbourne' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2077,7 +2077,7 @@ FROM (VALUES
           ('Moreton Island Resort',        'Tangalooma Jetty',       7.7,'/img/hotels/bne_moreton.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Brisbane' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2098,7 +2098,7 @@ FROM (VALUES
           ('Rottnest Island Lodge',        'Rottnest Settlement',    7.6,'/img/hotels/per_rottnest.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Perth' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2119,7 +2119,7 @@ FROM (VALUES
           ('Barossa Valley Wine Lodge',    'Barossa Hwy 50',         7.6,'/img/hotels/adl_barossa.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Adelaide' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2140,7 +2140,7 @@ FROM (VALUES
           ('Waiheke Island Resort',        'Oceanview Rd 20',        7.7,'/img/hotels/akl_waiheke.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Auckland' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2161,7 +2161,7 @@ FROM (VALUES
           ('Kapiti Coast Resort',          'Marine Pde 40',          7.6,'/img/hotels/wlg_kapiti.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Wellington' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2182,7 +2182,7 @@ FROM (VALUES
           ('Kaikoura Coastal Inn',         'Beach Rd 150',           7.6,'/img/hotels/chc_kaikoura.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Christchurch' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2203,7 +2203,7 @@ FROM (VALUES
           ('Waitomo Caves Lodge',          'SH3 Waitomo',            7.6,'/img/hotels/ham_waitomo.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Hamilton' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 /* ================================================================
@@ -2224,7 +2224,7 @@ FROM (VALUES
           ('Catlins Coastal Inn',          'Owaka Hwy 1',            7.6,'/img/hotels/dud_catlins.jpg')
      ) AS t(hotel_name,address,rating,img_url)
          CROSS JOIN LATERAL (SELECT id FROM cities WHERE city_name = 'Dunedin' LIMIT 1) AS c
-CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Stays' LIMIT 1) AS cat
+CROSS JOIN LATERAL (SELECT id FROM categories WHERE category_name = 'Hotels' LIMIT 1) AS cat
 ON CONFLICT DO NOTHING;
 
 

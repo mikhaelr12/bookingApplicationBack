@@ -1,2 +1,3 @@
-insert into categories(category_name) values ('Stays'),
+insert into categories(category_name) values ('Hotels'),
+                                             ('Apartments'),
                                              ('Attractions')

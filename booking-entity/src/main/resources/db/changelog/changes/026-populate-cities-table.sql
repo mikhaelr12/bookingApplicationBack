@@ -1,313 +1,285 @@
-/* =======================================================================
-   Populating table `cities`
-   • Each INSERT resolves the real country_id on the fly.
-   • image_path left NULL (second column in VALUES); adjust later if needed.
-   ======================================================================= */
-
-/* ---------- Germany ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Berlin',        NULL),
-          ('Munich',        NULL),
-          ('Hamburg',       NULL),
-          ('Frankfurt',     NULL),
-          ('Cologne',       NULL)
+      ('Berlin', '/cities/berlin.jpg'),
+      ('Munich', '/cities/munich.jpg'),
+      ('Hamburg', '/cities/hamburg.jpg'),
+      ('Frankfurt', '/cities/frankfurt.jpg'),
+      ('Cologne', '/cities/cologne.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Germany'
-        ) AS c;
+) AS c;
 
-/* ---------- France ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Paris',       NULL),
-          ('Marseille',   NULL),
-          ('Lyon',        NULL),
-          ('Toulouse',    NULL),
-          ('Nice',        NULL)
+      ('Paris', '/cities/paris.jpg'),
+      ('Marseille', '/cities/marseille.jpg'),
+      ('Lyon', '/cities/lyon.jpg'),
+      ('Toulouse', '/cities/toulouse.jpg'),
+      ('Nice', '/cities/nice.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'France'
-        ) AS c;
+) AS c;
 
-/* ---------- Italy ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Rome',       NULL),
-          ('Milan',      NULL),
-          ('Naples',     NULL),
-          ('Florence',   NULL),
-          ('Venice',     NULL)
+      ('Rome', '/cities/rome.jpg'),
+      ('Milan', '/cities/milan.jpg'),
+      ('Naples', '/cities/naples.jpg'),
+      ('Florence', '/cities/florence.jpg'),
+      ('Venice', '/cities/venice.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Italy'
-        ) AS c;
+) AS c;
 
-/* ---------- Spain ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Madrid',     NULL),
-          ('Barcelona',  NULL),
-          ('Valencia',   NULL),
-          ('Seville',    NULL),
-          ('Bilbao',     NULL)
+      ('Madrid', '/cities/madrid.jpg'),
+      ('Barcelona', '/cities/barcelona.jpg'),
+      ('Valencia', '/cities/valencia.jpg'),
+      ('Seville', '/cities/seville.jpg'),
+      ('Bilbao', '/cities/bilbao.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Spain'
-        ) AS c;
+) AS c;
 
-/* ---------- Netherlands ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Amsterdam',   NULL),
-          ('Rotterdam',   NULL),
-          ('The Hague',   NULL),
-          ('Utrecht',     NULL),
-          ('Eindhoven',   NULL)
+      ('Amsterdam', '/cities/amsterdam.jpg'),
+      ('Rotterdam', '/cities/rotterdam.jpg'),
+      ('The Hague', '/cities/the_hague.jpg'),
+      ('Utrecht', '/cities/utrecht.jpg'),
+      ('Eindhoven', '/cities/eindhoven.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Netherlands'
-        ) AS c;
+) AS c;
 
-/* ---------- Belgium ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Brussels',   NULL),
-          ('Antwerp',    NULL),
-          ('Ghent',      NULL),
-          ('Bruges',     NULL),
-          ('Charleroi',  NULL)
+      ('Brussels', '/cities/brussels.jpg'),
+      ('Antwerp', '/cities/antwerp.jpg'),
+      ('Ghent', '/cities/ghent.jpg'),
+      ('Bruges', '/cities/bruges.jpg'),
+      ('Charleroi', '/cities/charleroi.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Belgium'
-        ) AS c;
+) AS c;
 
-/* ---------- Sweden ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Stockholm', NULL),
-          ('Gothenburg',NULL),
-          ('Malmö',     NULL),
-          ('Uppsala',   NULL),
-          ('Västerås',  NULL)
+      ('Stockholm', '/cities/stockholm.jpg'),
+      ('Gothenburg', '/cities/gothenburg.jpg'),
+      ('Malmö', '/cities/malmö.jpg'),
+      ('Uppsala', '/cities/uppsala.jpg'),
+      ('Västerås', '/cities/västerås.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Sweden'
-        ) AS c;
+) AS c;
 
-/* ---------- Poland ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Warsaw',   NULL),
-          ('Kraków',   NULL),
-          ('Gdańsk',   NULL),
-          ('Wrocław',  NULL),
-          ('Poznań',   NULL)
+      ('Warsaw', '/cities/warsaw.jpg'),
+      ('Kraków', '/cities/kraków.jpg'),
+      ('Gdańsk', '/cities/gdańsk.jpg'),
+      ('Wrocław', '/cities/wrocław.jpg'),
+      ('Poznań', '/cities/poznań.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Poland'
-        ) AS c;
+) AS c;
 
-/* ---------- Romania ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Bucharest',     NULL),
-          ('Cluj-Napoca',   NULL),
-          ('Timișoara',     NULL),
-          ('Iași',          NULL),
-          ('Constanța',     NULL)
+      ('Bucharest', '/cities/bucharest.jpg'),
+      ('Cluj-Napoca', '/cities/clujnapoca.jpg'),
+      ('Timișoara', '/cities/timisoara.jpg'),
+      ('Iași', '/cities/iasi.jpg'),
+      ('Constanța', '/cities/constanta.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Romania'
-        ) AS c;
+) AS c;
 
-/* ---------- Greece ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Athens',        NULL),
-          ('Thessaloniki',  NULL),
-          ('Patras',        NULL),
-          ('Heraklion',     NULL),
-          ('Larissa',       NULL)
+      ('Athens', '/cities/athens.jpg'),
+      ('Thessaloniki', '/cities/thessaloniki.jpg'),
+      ('Patras', '/cities/patras.jpg'),
+      ('Heraklion', '/cities/heraklion.jpg'),
+      ('Larissa', '/cities/larissa.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Greece'
-        ) AS c;
+) AS c;
 
-/* ---------- Japan ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Tokyo',    NULL),
-          ('Osaka',    NULL),
-          ('Kyoto',    NULL),
-          ('Yokohama', NULL),
-          ('Sapporo',  NULL)
+      ('Tokyo', '/cities/tokyo.jpg'),
+      ('Osaka', '/cities/osaka.jpg'),
+      ('Kyoto', '/cities/kyoto.jpg'),
+      ('Yokohama', '/cities/yokohama.jpg'),
+      ('Sapporo', '/cities/sapporo.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Japan'
-        ) AS c;
+) AS c;
 
-/* ---------- China ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Beijing',   NULL),
-          ('Shanghai',  NULL),
-          ('Guangzhou', NULL),
-          ('Shenzhen',  NULL),
-          ('Chengdu',   NULL)
+      ('Beijing', '/cities/beijing.jpg'),
+      ('Shanghai', '/cities/shanghai.jpg'),
+      ('Guangzhou', '/cities/guangzhou.jpg'),
+      ('Shenzhen', '/cities/shenzhen.jpg'),
+      ('Chengdu', '/cities/chengdu.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'China'
-        ) AS c;
+) AS c;
 
-/* ---------- India ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Mumbai',     NULL),
-          ('Delhi',      NULL),
-          ('Bengaluru',  NULL),
-          ('Hyderabad',  NULL),
-          ('Chennai',    NULL)
+      ('Mumbai', '/cities/mumbai.jpg'),
+      ('Delhi', '/cities/delhi.jpg'),
+      ('Bengaluru', '/cities/bengaluru.jpg'),
+      ('Hyderabad', '/cities/hyderabad.jpg'),
+      ('Chennai', '/cities/chennai.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'India'
-        ) AS c;
+) AS c;
 
-/* ---------- United States ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('New York',    NULL),
-          ('Los Angeles', NULL),
-          ('Chicago',     NULL),
-          ('Houston',     NULL),
-          ('Miami',       NULL)
+      ('New York', '/cities/new_york.jpg'),
+      ('Los Angeles', '/cities/los_angeles.jpg'),
+      ('Chicago', '/cities/chicago.jpg'),
+      ('Houston', '/cities/houston.jpg'),
+      ('Miami', '/cities/miami.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'United States'
-        ) AS c;
+) AS c;
 
-/* ---------- Canada ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Toronto',   NULL),
-          ('Vancouver', NULL),
-          ('Montreal',  NULL),
-          ('Calgary',   NULL),
-          ('Ottawa',    NULL)
+      ('Toronto', '/cities/toronto.jpg'),
+      ('Vancouver', '/cities/vancouver.jpg'),
+      ('Montreal', '/cities/montreal.jpg'),
+      ('Calgary', '/cities/calgary.jpg'),
+      ('Ottawa', '/cities/ottawa.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Canada'
-        ) AS c;
+) AS c;
 
-/* ---------- Mexico ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Mexico City', NULL),
-          ('Guadalajara', NULL),
-          ('Monterrey',   NULL),
-          ('Puebla',      NULL),
-          ('Tijuana',     NULL)
+      ('Mexico City', '/cities/mexico_city.jpg'),
+      ('Guadalajara', '/cities/guadalajara.jpg'),
+      ('Monterrey', '/cities/monterrey.jpg'),
+      ('Puebla', '/cities/puebla.jpg'),
+      ('Tijuana', '/cities/tijuana.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Mexico'
-        ) AS c;
+) AS c;
 
-/* ---------- Brazil ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('São Paulo',      NULL),
-          ('Rio de Janeiro', NULL),
-          ('Brasília',       NULL),
-          ('Salvador',       NULL),
-          ('Fortaleza',      NULL)
+      ('São Paulo', '/cities/são_paulo.jpg'),
+      ('Rio de Janeiro', '/cities/rio_de_janeiro.jpg'),
+      ('Brasília', '/cities/brasília.jpg'),
+      ('Salvador', '/cities/salvador.jpg'),
+      ('Fortaleza', '/cities/fortaleza.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Brazil'
-        ) AS c;
+) AS c;
 
-/* ---------- Argentina ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Buenos Aires', NULL),
-          ('Córdoba',      NULL),
-          ('Rosario',      NULL),
-          ('Mendoza',      NULL),
-          ('La Plata',     NULL)
+      ('Buenos Aires', '/cities/buenos_aires.jpg'),
+      ('Córdoba', '/cities/córdoba.jpg'),
+      ('Rosario', '/cities/rosario.jpg'),
+      ('Mendoza', '/cities/mendoza.jpg'),
+      ('La Plata', '/cities/la_plata.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Argentina'
-        ) AS c;
+) AS c;
 
-/* ---------- South Africa ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Johannesburg',   NULL),
-          ('Cape Town',      NULL),
-          ('Durban',         NULL),
-          ('Pretoria',       NULL),
-          ('Port Elizabeth', NULL)
+      ('Johannesburg', '/cities/johannesburg.jpg'),
+      ('Cape Town', '/cities/cape_town.jpg'),
+      ('Durban', '/cities/durban.jpg'),
+      ('Pretoria', '/cities/pretoria.jpg'),
+      ('Port Elizabeth', '/cities/port_elizabeth.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'South Africa'
-        ) AS c;
+) AS c;
 
-/* ---------- Kenya ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Nairobi', NULL),
-          ('Mombasa', NULL),
-          ('Kisumu',  NULL),
-          ('Nakuru',  NULL),
-          ('Eldoret', NULL)
+      ('Nairobi', '/cities/nairobi.jpg'),
+      ('Mombasa', '/cities/mombasa.jpg'),
+      ('Kisumu', '/cities/kisumu.jpg'),
+      ('Nakuru', '/cities/nakuru.jpg'),
+      ('Eldoret', '/cities/eldoret.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Kenya'
-        ) AS c;
+) AS c;
 
-/* ---------- Australia ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Sydney',    NULL),
-          ('Melbourne', NULL),
-          ('Brisbane',  NULL),
-          ('Perth',     NULL),
-          ('Adelaide',  NULL)
+      ('Sydney', '/cities/sydney.jpg'),
+      ('Melbourne', '/cities/melbourne.jpg'),
+      ('Brisbane', '/cities/brisbane.jpg'),
+      ('Perth', '/cities/perth.jpg'),
+      ('Adelaide', '/cities/adelaide.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'Australia'
-        ) AS c;
+) AS c;
 
-/* ---------- New Zealand ---------- */
 INSERT INTO cities (city_name, image_path, country_id)
 SELECT t.city, t.img, c.id
 FROM (VALUES
-          ('Auckland',     NULL),
-          ('Wellington',   NULL),
-          ('Christchurch', NULL),
-          ('Hamilton',     NULL),
-          ('Dunedin',      NULL)
+      ('Auckland', '/cities/auckland.jpg'),
+      ('Wellington', '/cities/wellington.jpg'),
+      ('Christchurch', '/cities/christchurch.jpg'),
+      ('Hamilton', '/cities/hamilton.jpg'),
+      ('Dunedin', '/cities/dunedin.jpg')
      ) AS t(city, img)
-         CROSS JOIN LATERAL (
+CROSS JOIN LATERAL (
     SELECT id FROM countries WHERE country_name = 'New Zealand'
-        ) AS c;
+) AS c;
