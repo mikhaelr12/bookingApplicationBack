@@ -1,7 +1,6 @@
 package com.booking.config;
 
 
-import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -42,7 +41,7 @@ public class SecurityConfig{
                                 "/auth/users/**", "/hotels/**", "/continents/**",
                                 "/apartments/**", "/categories/**", "/cities/**",
                                 "/continents/**", "/rooms/**", "/reviews/**",
-                                "/img/**",
+                                "/img/**", "/bookings/**",
                                 "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
                                 "/webjars/**", "/favicon.ico"
                         ).permitAll()

@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@Service("apartment")
+@Service("apartment-review")
 @AllArgsConstructor
 public class ApartmentReviewServiceImpl implements ReviewService {
 
