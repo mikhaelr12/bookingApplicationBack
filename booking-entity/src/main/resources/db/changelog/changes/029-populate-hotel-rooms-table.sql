@@ -51,11 +51,7 @@ SELECT
         END) + (series.n - 1) * 5                             AS price,
 
     /* capacitate */
-    CASE types.room_type
-        WHEN 'Standard' THEN 2
-        WHEN 'Luxury'   THEN 3
-        WHEN 'Premium'  THEN 4
-        END                                                    AS max_guests,
+    floor(random() * 5 + 1)::int                                                   AS max_guests,
 
     /* imagine după convenţie */
     '/img/rooms/' ||

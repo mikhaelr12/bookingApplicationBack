@@ -9,4 +9,5 @@ public interface HotelService {
     List<HotelDTO> getHotelsByCity(Long cityId);
 
     List<HotelDTO> getHotelsByContinent(Long continentId);
+
 }

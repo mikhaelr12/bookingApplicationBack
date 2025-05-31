@@ -1,7 +1,5 @@
 package com.booking.dto;
 
-import com.booking.dto.response.RoomTypeDTO;
-import com.booking.entity.stays.hotel.RoomType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -4,7 +4,9 @@ import com.booking.entity.Category;
 import com.booking.entity.country.City;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,10 @@ public class Attraction {
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
 
     @Column(name = "additional_info", columnDefinition = "TEXT")
     private String additionalInfo;

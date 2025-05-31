@@ -2,10 +2,13 @@ package com.booking.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,6 +35,10 @@ public class User implements UserDetails {
 
     @Column(name = "phone_number", unique = true, nullable = false)
     private String phoneNumber;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
+    private OffsetDateTime createdAt;
 
     @ManyToOne
     @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_ur_user"))

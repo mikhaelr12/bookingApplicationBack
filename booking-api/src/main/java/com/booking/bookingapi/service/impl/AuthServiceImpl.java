@@ -42,7 +42,7 @@ public class AuthServiceImpl implements AuthService {
         newUser.setEmail(userDTO.getEmail());
         newUser.setPhoneNumber(userDTO.getPhone());
         newUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        newUser.setRole(userRoleRepository.findById(1L).get());
+        newUser.setRole(userRoleRepository.findById(1L).orElseThrow(() -> new UserException("Role Not Found")));
         userRepository.save(newUser);
     }
 

@@ -5,10 +5,7 @@ import com.booking.dto.HotelDTO;
 import com.booking.entity.country.City;
 import com.booking.entity.country.Country;
 import com.booking.entity.stays.hotel.Hotel;
-import com.booking.repository.CityRepository;
-import com.booking.repository.ContinentRepository;
-import com.booking.repository.CountryRepository;
-import com.booking.repository.HotelRepository;
+import com.booking.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -68,4 +65,5 @@ public class HotelServiceImpl implements HotelService {
 
         return result;
     }
+
 }

@@ -19,7 +19,8 @@ public class ReviewController {
     private final TokenExtract tokenExtract;
 
     @PostMapping("/{type}/{targetId}")
-    @Operation(summary = "Leave review for hotel", description = "User leaves a review for hotel, text not necessary")
+    @Operation(summary = "Leave review for hotel/apartment", description = "User leaves a review for hotel or apartment," +
+            " text not necessary")
     public ResponseEntity<?> leaveReview(@PathVariable("type") String type,
                                          @PathVariable("targetId") Long targetId,
                                          @RequestBody ReviewDTO reviewDTO,
@@ -31,9 +32,10 @@ public class ReviewController {
     }
 
     @GetMapping("/{type}/{targetId}")
-    @Operation(summary = "Return all reviews for a hotel", description = "Return a list of all reviews for a hotel")
-    public ResponseEntity<List<ReviewDTO>> getAllReviewsForHotel(@PathVariable("type") String type,
-                                                                 @PathVariable("targetId") Long targetId){
+    @Operation(summary = "Return all reviews for a hotel/apartment", description = "Return a list of all reviews for a " +
+            "hotel or apartment")
+    public ResponseEntity<List<ReviewDTO>> getAllReviews(@PathVariable("type") String type,
+                                                         @PathVariable("targetId") Long targetId){
         ReviewService reviewService = reviewServiceMap.get(type);
         return ResponseEntity.ok(reviewService.findAll(targetId));
     }

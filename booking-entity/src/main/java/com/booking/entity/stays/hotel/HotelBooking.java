@@ -7,10 +7,16 @@ import lombok.*;
 @Entity
 @Table(name = "hotel_bookings")
 @Getter @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class HotelBooking extends BaseBooking {
 
     @ManyToOne
     @JoinColumn(name = "room_id", foreignKey = @ForeignKey(name = "fk_room_hb"))
     private HotelRoom hotelRoom;
 
+    @ManyToOne
+    @JoinColumn(name = "hotel_id", foreignKey = @ForeignKey(name = "fk_hotel_hb"))
+    private Hotel hotel;
 }

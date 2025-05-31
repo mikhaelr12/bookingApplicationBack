@@ -8,6 +8,7 @@ create table users(
     password varchar(255) not null ,
     email varchar(255) unique not null ,
     phone_number varchar(255) unique not null ,
+    created_at timestamp default current_timestamp ,
     role_id bigint,
     constraint fk_ur_user foreign key (role_id) references user_roles (id)
 );

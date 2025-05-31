@@ -3,7 +3,7 @@ package com.booking.bookingapi.service.impl;
 import com.booking.bookingapi.service.HotelRoomService;
 import com.booking.dto.HotelDTO;
 import com.booking.dto.HotelRoomDTO;
-import com.booking.dto.response.RoomTypeDTO;
+import com.booking.dto.RoomTypeDTO;
 import com.booking.entity.stays.hotel.HotelRoom;
 import com.booking.repository.HotelRoomRepository;
 import lombok.AllArgsConstructor;
