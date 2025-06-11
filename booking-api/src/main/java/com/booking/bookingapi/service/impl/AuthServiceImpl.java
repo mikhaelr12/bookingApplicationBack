@@ -25,25 +25,27 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void register(UserDTO userDTO) {
         Optional<User> user = userRepository.findByUsername(userDTO.getUsername());
-        if (user.isPresent()) {
-            throw new UserException("Username already in use");
-        }
-        user = userRepository.findByEmail(userDTO.getEmail());
-        if (user.isPresent()) {
-            throw new UserException("Email already in use");
-        }
-        user = userRepository.findByPhoneNumber(userDTO.getPhone());
-        if (user.isPresent()) {
-            throw new UserException("Phone number already in use");
-        }
 
-        User newUser = new User();
-        newUser.setUsername(userDTO.getUsername());
-        newUser.setEmail(userDTO.getEmail());
-        newUser.setPhoneNumber(userDTO.getPhone());
-        newUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        newUser.setRole(userRoleRepository.findById(1L).orElseThrow(() -> new UserException("Role Not Found")));
-        userRepository.save(newUser);
+        if (user.isPresent())
+            throw new UserException("Username already in use");
+
+        user = userRepository.findByEmail(userDTO.getEmail());
+
+        if (user.isPresent())
+            throw new UserException("Email already in use");
+
+        user = userRepository.findByPhoneNumber(userDTO.getPhone());
+
+        if (user.isPresent())
+            throw new UserException("Phone number already in use");
+
+        userRepository.save(User.builder()
+                        .username(userDTO.getUsername())
+                        .password(passwordEncoder.encode(userDTO.getPassword()))
+                        .phoneNumber(userDTO.getPhone())
+                        .role(userRoleRepository.findById(1L)
+                                .orElseThrow(() -> new UserException("Role Not Found")))
+                .build());
     }
 
     @Override

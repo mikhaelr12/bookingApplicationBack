@@ -32,7 +32,15 @@ public class ApartmentBookingServiceImpl implements BookingService<BookingRespon
     @Override
     public void validateAndBook(String token, BookingDTO bookingDTO) {
         User user = userExtract.getUser(token);
+
+        if (user == null)
+            throw new UserException("User not found");
+
         List<ApartmentBooking> bookings = apartmentBookingRepository.findAllByApartmentId(bookingDTO.getTargetId());
+
+        if (bookings.isEmpty())
+            throw new BookingException("Bookings not found");
+
         for (ApartmentBooking booking : bookings) {
             if(bookingDTO.getCheckIn().isBefore(booking.getCheckOut()) &&
             bookingDTO.getCheckOut().isAfter(booking.getCheckIn())) {
@@ -42,8 +50,8 @@ public class ApartmentBookingServiceImpl implements BookingService<BookingRespon
             }
         }
 
-        Apartment apartment = apartmentRepository.findById(bookingDTO.getTargetId()).orElseThrow(() -> new ApartmentException("No apartment found with id: "
-                        + bookingDTO.getTargetId()));
+        Apartment apartment = apartmentRepository.findById(bookingDTO.getTargetId())
+                .orElseThrow(() -> new ApartmentException("No apartment found with id: " + bookingDTO.getTargetId()));
 
         apartmentBookingRepository.save(ApartmentBooking.builder()
                         .apartment(apartment)

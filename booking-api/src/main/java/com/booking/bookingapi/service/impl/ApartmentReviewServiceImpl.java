@@ -6,6 +6,7 @@ import com.booking.dto.UserReviewDTO;
 import com.booking.entity.User;
 import com.booking.entity.stays.apartment.Apartment;
 import com.booking.entity.stays.apartment.ApartmentReview;
+import com.booking.exception.UserException;
 import com.booking.repository.ApartmentRepository;
 import com.booking.repository.ApartmentReviewRepository;
 import com.booking.token.UserExtract;
@@ -27,16 +28,20 @@ public class ApartmentReviewServiceImpl implements ReviewService {
     @Override
     public void leaveReview(ReviewDTO review, String jwt, Long targetId) {
         User user = userExtract.getUser(jwt);
+
+        if (user == null)
+            throw new UserException("User not found");
+
         Optional<Apartment> apartment = apartmentRepository.findById(targetId);
-        ApartmentReview newReview = new ApartmentReview();
-        if (apartment.isPresent()) {
-            newReview.setApartment(apartment.get());
-            newReview.setUser(user);
-            newReview.setReviewDate(LocalDate.now());
-            newReview.setRating(review.getRating());
-            newReview.setText(review.getText());
-            apartmentReviewRepository.save(newReview);
-        }
+
+        apartment.ifPresent(
+                aptReview -> apartmentReviewRepository.save(ApartmentReview.builder()
+                .apartment(aptReview)
+                .reviewDate(LocalDate.now())
+                .user(user)
+                .rating(review.getRating())
+                .text(review.getText())
+                .build()));
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.booking.dto.HotelDTO;
 import com.booking.dto.HotelRoomDTO;
 import com.booking.dto.RoomTypeDTO;
 import com.booking.entity.stays.hotel.HotelRoom;
+import com.booking.exception.RoomException;
 import com.booking.repository.HotelRoomRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class HotelRoomServiceImpl implements HotelRoomService {
     @Override
     public List<HotelRoomDTO> getHotelRooms(Long hotelId) {
         List<HotelRoom> hotelRooms = hotelRoomRepository.findAllByHotelId(hotelId);
+
+        if(hotelRooms.isEmpty())
+            throw new RoomException("Rooms not Found");
+
         return hotelRooms.stream().map(r -> HotelRoomDTO.builder()
                 .id(r.getId())
                 .roomNumber(r.getRoomNumber())

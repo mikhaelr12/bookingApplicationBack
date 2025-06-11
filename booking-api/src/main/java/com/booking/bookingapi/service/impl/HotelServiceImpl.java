@@ -5,6 +5,8 @@ import com.booking.dto.HotelDTO;
 import com.booking.entity.country.City;
 import com.booking.entity.country.Country;
 import com.booking.entity.stays.hotel.Hotel;
+import com.booking.exception.CountryException;
+import com.booking.exception.HotelException;
 import com.booking.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,10 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public List<HotelDTO> getHotelsByCity(Long cityId) {
         List<Hotel> hotels = hotelRepository.findAllByCityId(cityId);
+
+        if(hotels.isEmpty())
+            throw new HotelException("Hotels not found");
+
         return hotels.stream().map(h -> HotelDTO.builder()
                         .id(h.getId())
                         .name(h.getHotelName())
@@ -42,6 +48,10 @@ public class HotelServiceImpl implements HotelService {
                 .stream()
                 .limit(5)
                 .toList();
+
+        if (countries.isEmpty())
+            throw new CountryException("Country not found");
+
         List<HotelDTO> result = new ArrayList<>();
 
         for (Country country : countries) {
@@ -65,5 +75,4 @@ public class HotelServiceImpl implements HotelService {
 
         return result;
     }
-
 }

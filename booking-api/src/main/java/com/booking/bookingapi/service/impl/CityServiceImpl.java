@@ -7,6 +7,8 @@ import com.booking.dto.CountryDTO;
 import com.booking.repository.CityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,7 +20,7 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public List<CityDTO> getFeaturedCities() {
-        List<CityDTO> cities = new java.util.ArrayList<>(cityRepository.findAll().stream()
+        List<CityDTO> cities = new ArrayList<>(cityRepository.findAll().stream()
                 .map(c -> CityDTO.builder()
                         .id(c.getId())
                         .name(c.getCityName())

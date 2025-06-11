@@ -3,11 +3,12 @@ package com.booking.entity.stays.hotel;
 import com.booking.entity.booking.BaseBooking;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "hotel_bookings")
 @Getter @Setter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class HotelBooking extends BaseBooking {

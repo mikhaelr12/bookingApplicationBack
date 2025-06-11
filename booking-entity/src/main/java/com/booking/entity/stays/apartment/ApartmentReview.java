@@ -2,11 +2,15 @@ package com.booking.entity.stays.apartment;
 
 import com.booking.entity.review.BaseReview;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "apartment_reviews")
-@Data
+@Getter @Setter
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ApartmentReview extends BaseReview {
 
 

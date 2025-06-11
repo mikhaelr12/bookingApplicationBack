@@ -35,8 +35,8 @@ public class BookingController {
     @GetMapping("/{type}")
     @Operation(summary = "Get users bookings", description = "Get all the bookings of a user, " +
             "hotel-booking for hotel/apartment-booking for apartment")
-    public ResponseEntity<List<?>> getHotelBookings(@RequestHeader("Authorization") String token,
-                                                             @PathVariable("type") String type) {
+    public ResponseEntity<List<?>> getBookings(@RequestHeader("Authorization") String token,
+                                               @PathVariable("type") String type) {
         String jwt = tokenExtract.getToken(token);
         BookingService<?> bookingService = bookingServices.get(type);
         return ResponseEntity.ok(bookingService.getAllBookings(jwt));

@@ -6,9 +6,11 @@ import com.booking.dto.UserReviewDTO;
 import com.booking.entity.User;
 import com.booking.entity.stays.hotel.Hotel;
 import com.booking.entity.stays.hotel.HotelReview;
+import com.booking.exception.UserException;
 import com.booking.repository.HotelRepository;
 import com.booking.repository.HotelReviewRepository;
 import com.booking.token.UserExtract;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +29,21 @@ public class HotelReviewServiceImpl implements ReviewService {
     @Override
     public void leaveReview(ReviewDTO review, String jwt, Long targetId) {
         User user = userExtract.getUser(jwt);
+
+        if(user == null)
+            throw new UserException("User not found");
+
         Optional<Hotel> hotel = hotelRepository.findById(targetId);
-        HotelReview hotelReview = new HotelReview();
-        hotelReview.setHotel(hotel.get());
-        hotelReview.setUser(user);
-        hotelReview.setReviewDate(LocalDate.now());
-        hotelReview.setText(review.getText());
-        hotelReview.setRating(review.getRating());
-        hotelReviewRepository.save(hotelReview);
+
+        hotel.ifPresent(
+                hotelReview -> hotelReviewRepository.save(HotelReview.builder()
+                .hotel(hotel.get())
+                .user(user)
+                .reviewDate(LocalDate.now())
+                .text(review.getText())
+                .rating(review.getRating())
+                .build()));
+
     }
 
     @Override
@@ -53,6 +62,10 @@ public class HotelReviewServiceImpl implements ReviewService {
 
     public void updateRating() {
         List<HotelReview> hotelReviews = hotelReviewRepository.findAllByCheckedFalse();
+
+        if (hotelReviews.isEmpty())
+            throw new EntityNotFoundException("Hotel reviews not found");
+
         for (HotelReview hotelReview : hotelReviews) {
             Long hotelId = hotelReview.getHotel().getId();
             hotelReview.setChecked(true);

@@ -30,10 +30,15 @@ public class HotelBookingServiceImpl implements BookingService<HotelBookingRespo
     @Override
     public void validateAndBook(String token, BookingDTO bookingDTO) {
         User user = userExtract.getUser(token);
+
+        if (user == null)
+            throw new UserException("User not found");
+
         List<HotelRoom> rooms = hotelRoomRepository.findAllByHotelIdAndRoomTypeId(bookingDTO.getTargetId(),
                 bookingDTO.getRoomTypeId())
                 .stream().filter(r -> r.getMaxGuests() >= bookingDTO.getNoPeople()
         ).toList();
+
 
         if(rooms.isEmpty()) {
             throw new RoomException("No rooms with capacity of " + bookingDTO.getNoPeople());
@@ -53,22 +58,29 @@ public class HotelBookingServiceImpl implements BookingService<HotelBookingRespo
                 .findFirst()
                 .orElseThrow(() -> new RoomException("All rooms are booked for the selected period."));
         
-        HotelBooking hotelBooking = new HotelBooking();
-        hotelBooking.setHotelRoom(availableRoom);
-        hotelBooking.setUser(user);
-        hotelBooking.setHotel(availableRoom.getHotel());
-        hotelBooking.setCheckIn(bookingDTO.getCheckIn());
-        hotelBooking.setCheckOut(bookingDTO.getCheckOut());
-        hotelBooking.setFinalPrice(stayPriceCalculator
-                .calculatePrice(bookingDTO.getCheckIn(), hotelBooking.getCheckOut(), availableRoom.getPrice()));
-        hotelBooking.setStatus(BookingStatus.PENDING);
-        hotelBooking.setNoGuests(bookingDTO.getNoPeople());
-        hotelBookingRepository.save(hotelBooking);
+
+        hotelBookingRepository.save(HotelBooking.builder()
+                        .hotelRoom(availableRoom)
+                        .hotel(availableRoom.getHotel())
+                        .user(user)
+                        .checkIn(bookingDTO.getCheckIn())
+                        .checkOut(bookingDTO.getCheckOut())
+                        .finalPrice(stayPriceCalculator.calculatePrice(
+                                        bookingDTO.getCheckIn(),
+                                        bookingDTO.getCheckOut(),
+                                        availableRoom.getPrice()))
+                        .status(BookingStatus.PENDING)
+                        .noGuests(bookingDTO.getNoPeople())
+                .build());
     }
 
     @Override
     public List<HotelBookingResponse> getAllBookings(String jwt) {
         User user = userExtract.getUser(jwt);
+
+        if (user == null)
+            throw new UserException("User not found");
+
         List<HotelBooking> bookings = hotelBookingRepository.findAllByUserId(user.getId());
 
         if(bookings.isEmpty()) {
