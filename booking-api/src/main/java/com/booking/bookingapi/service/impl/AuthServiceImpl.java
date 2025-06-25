@@ -43,6 +43,7 @@ public class AuthServiceImpl implements AuthService {
                         .username(userDTO.getUsername())
                         .password(passwordEncoder.encode(userDTO.getPassword()))
                         .phoneNumber(userDTO.getPhone())
+                        .email(userDTO.getEmail())
                         .role(userRoleRepository.findById(1L)
                                 .orElseThrow(() -> new UserException("Role Not Found")))
                 .build());

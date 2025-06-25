@@ -4,6 +4,8 @@ import com.booking.entity.Category;
 import com.booking.entity.country.City;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -12,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "attractions")
-@Data
+@Getter @Setter
 public class Attraction {
 
     @Id

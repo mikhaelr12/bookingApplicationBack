@@ -1,11 +1,17 @@
 package com.booking.entity.attraction;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "attraction_booking_visitors")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AttractionBookingVisitor {
 
     @Id
@@ -15,9 +21,6 @@ public class AttractionBookingVisitor {
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
-
-    @Column(name = "unit_price", nullable = false)
-    private Double unitPrice;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "booking_id",
