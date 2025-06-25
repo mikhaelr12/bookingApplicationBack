@@ -1,7 +1,9 @@
 package com.booking.bookingapi.controller;
 
+import com.booking.bookingapi.service.AttractionBookingService;
 import com.booking.bookingapi.service.BookingService;
 import com.booking.dto.BookingDTO;
+import com.booking.dto.request.AttractionBookingRequest;
 import com.booking.token.TokenExtract;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
@@ -40,5 +42,16 @@ public class BookingController {
         String jwt = tokenExtract.getToken(token);
         BookingService<?> bookingService = bookingServices.get(type);
         return ResponseEntity.ok(bookingService.getAllBookings(jwt));
+    }
+
+    @PostMapping("/attraction")
+    @Operation(summary = "Booking for attraction", description = "Creating the booking for an attraction, " +
+            "number of people for a specific category needed, specific attraction, date and hour")
+    public ResponseEntity<?> bookAttraction(@RequestHeader("Authorization") String token,
+                                            @RequestBody AttractionBookingRequest request){
+        String jwt = tokenExtract.getToken(token);
+        BookingService<?> bookingService = bookingServices.get("attraction-booking");
+        bookingService.bookAttraction(jwt, request);
+        return ResponseEntity.ok("Booking made successfully");
     }
 }

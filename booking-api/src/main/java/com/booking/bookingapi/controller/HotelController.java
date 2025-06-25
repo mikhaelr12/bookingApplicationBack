@@ -1,7 +1,7 @@
 package com.booking.bookingapi.controller;
 
 import com.booking.bookingapi.service.HotelService;
-import com.booking.dto.HotelDTO;
+import com.booking.dto.hotel.HotelDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -35,3 +35,6 @@ build/
 application.yaml
 
 **/src/main/resources/static/img/**
+
+*/target
+*.class

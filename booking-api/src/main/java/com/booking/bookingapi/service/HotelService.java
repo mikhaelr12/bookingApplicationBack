@@ -1,6 +1,6 @@
 package com.booking.bookingapi.service;
 
-import com.booking.dto.HotelDTO;
+import com.booking.dto.hotel.HotelDTO;
 
 import java.util.List;
 

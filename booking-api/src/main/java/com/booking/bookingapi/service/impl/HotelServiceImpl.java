@@ -1,7 +1,7 @@
 package com.booking.bookingapi.service.impl;
 
 import com.booking.bookingapi.service.HotelService;
-import com.booking.dto.HotelDTO;
+import com.booking.dto.hotel.HotelDTO;
 import com.booking.entity.country.City;
 import com.booking.entity.country.Country;
 import com.booking.entity.stays.hotel.Hotel;
