@@ -33,10 +33,6 @@ public class Attraction {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @CreationTimestamp
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
-
     @Column(name = "additional_info", columnDefinition = "TEXT")
     private String additionalInfo;
 

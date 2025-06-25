@@ -41,6 +41,7 @@ public class SecurityConfig{
                                 "/auth/users/**", "/hotels/**", "/continents/**",
                                 "/apartments/**", "/categories/**", "/cities/**",
                                 "/continents/**", "/rooms/**", "/reviews/**",
+                                "/attractions/**",
                                 "/img/**", "/bookings/**",
                                 "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
                                 "/webjars/**", "/favicon.ico"

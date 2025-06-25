@@ -1,4 +1,4 @@
-package com.booking.dto;
+package com.booking.dto.apartment;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,13 +9,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HotelDTO {
+public class ApartmentDTO {
 
     private Long id;
-    private String name;
+    private String apartmentName;
     private String address;
     private Double rating;
-    private String imageUrl;
+    private Double price;
+    private Integer noBedRooms;
+    private Integer noGuests;
+    private String image;
     private String cityName;
     private String countryName;
 }
