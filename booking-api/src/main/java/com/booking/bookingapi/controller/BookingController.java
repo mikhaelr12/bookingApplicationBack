@@ -1,8 +1,7 @@
 package com.booking.bookingapi.controller;
 
-import com.booking.bookingapi.service.AttractionBookingService;
 import com.booking.bookingapi.service.BookingService;
-import com.booking.dto.BookingDTO;
+import com.booking.dto.request.BookingRequest;
 import com.booking.dto.request.AttractionBookingRequest;
 import com.booking.token.TokenExtract;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +26,7 @@ public class BookingController {
             " for hotel, people and dates.")
     public ResponseEntity<?> validateAndBook(@RequestHeader("Authorization") String token,
                                              @PathVariable("type") String type,
-                                             BookingDTO hotelDTO) {
+                                             BookingRequest hotelDTO) {
         String jwt = tokenExtract.getToken(token);
         BookingService<?> bookingService = bookingServices.get(type);
         bookingService.validateAndBook(jwt, hotelDTO);

@@ -2,7 +2,7 @@ package com.booking.bookingapi.service.impl;
 
 import com.booking.bookingapi.service.BookingService;
 import com.booking.bookingapi.util.StayPriceCalculator;
-import com.booking.dto.BookingDTO;
+import com.booking.dto.request.BookingRequest;
 import com.booking.dto.response.BookingResponse;
 import com.booking.entity.User;
 import com.booking.entity.stays.apartment.Apartment;
@@ -30,7 +30,7 @@ public class ApartmentBookingServiceImpl implements BookingService<BookingRespon
     private final StayPriceCalculator stayPriceCalculator;
 
     @Override
-    public void validateAndBook(String token, BookingDTO bookingDTO) {
+    public void validateAndBook(String token, BookingRequest bookingDTO) {
         User user = userExtract.getUser(token);
 
         if (user == null)
