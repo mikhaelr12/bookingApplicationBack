@@ -45,6 +45,8 @@ public class BookingController {
     }
 
     @PostMapping("/attraction")
+    @Operation(summary = "Booking for attraction", description = "Creating the booking for an attraction, " +
+            "number of people for a specific category needed, specific attraction, date and hour")
     public ResponseEntity<?> bookAttraction(@RequestHeader("Authorization") String token,
                                             @RequestBody AttractionBookingRequest request){
         String jwt = tokenExtract.getToken(token);

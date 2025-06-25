@@ -4,6 +4,7 @@ import com.booking.bookingapi.service.BookingService;
 import com.booking.dto.AttractionVisitorsDTO;
 import com.booking.dto.request.AttractionBookingRequest;
 import com.booking.dto.response.AttractionBookingResponse;
+import com.booking.dto.response.AttractionVisitorResponse;
 import com.booking.entity.User;
 import com.booking.entity.attraction.*;
 import com.booking.enums.BookingStatus;
@@ -105,6 +106,25 @@ public class AttractionBookingServiceImpl implements BookingService<AttractionBo
 
     @Override
     public List<AttractionBookingResponse> getAllBookings(String jwt) {
-        return List.of();
+        User user = userExtract.getUser(jwt);
+
+        if (user == null)
+            throw new UserException("No user found");
+
+        List<AttractionBooking> bookings = attractionBookingRepository.findAllByUserId(user.getId());
+
+        return bookings.stream().map(b -> AttractionBookingResponse.builder()
+                .date(b.getAttractionTime().getAttractionDate())
+                .time(b.getAttractionTime().getAttractionTime())
+                .finalPrice(b.getFinalPrice())
+                .visitorsDTOS(b.getVisitors()
+                        .stream().map(v -> AttractionVisitorResponse.builder()
+                                .visitorCategory(v.getCategory().getName())
+                                .quantity(v.getQuantity())
+                        .build()).toList()
+                )
+                .city(b.getAttraction().getCity().getCityName())
+                .country(b.getAttraction().getCity().getCountry().getCountryName())
+                .build()).toList();
     }
 }
