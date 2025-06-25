@@ -1,4 +1,4 @@
-package com.booking.dto;
+package com.booking.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingDTO {
+public class BookingRequest {
 
     private Long targetId;
     private Long roomTypeId;

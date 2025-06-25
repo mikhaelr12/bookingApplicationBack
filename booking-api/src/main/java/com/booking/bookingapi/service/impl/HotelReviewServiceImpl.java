@@ -1,8 +1,8 @@
 package com.booking.bookingapi.service.impl;
 
 import com.booking.bookingapi.service.ReviewService;
-import com.booking.dto.ReviewDTO;
-import com.booking.dto.UserReviewDTO;
+import com.booking.dto.request.ReviewRequest;
+import com.booking.dto.response.ReviewResponse;
 import com.booking.entity.User;
 import com.booking.entity.stays.hotel.Hotel;
 import com.booking.entity.stays.hotel.HotelReview;
@@ -27,7 +27,7 @@ public class HotelReviewServiceImpl implements ReviewService {
     private final HotelRepository hotelRepository;
 
     @Override
-    public void leaveReview(ReviewDTO review, String jwt, Long targetId) {
+    public void leaveReview(ReviewRequest review, String jwt, Long targetId) {
         User user = userExtract.getUser(jwt);
 
         if(user == null)
@@ -47,16 +47,13 @@ public class HotelReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDTO> findAll(Long targetId) {
+    public List<ReviewResponse> findAll(Long targetId) {
         List<HotelReview> reviews = hotelReviewRepository.findAllByHotelId(targetId);
-        return reviews.stream().map(hr -> ReviewDTO.builder()
-                .id(hr.getId())
+        return reviews.stream().map(hr -> ReviewResponse.builder()
                 .reviewDate(hr.getReviewDate())
-                .text(hr.getText())
+                .reviewText(hr.getText())
                 .rating(hr.getRating())
-                .userReview(UserReviewDTO.builder()
-                        .username(hr.getUser().getUsername())
-                        .build())
+                .reviewer(hr.getUser().getUsername())
                 .build()).toList();
     }
 

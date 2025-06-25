@@ -2,7 +2,8 @@ package com.booking.bookingapi.controller;
 
 import com.booking.bookingapi.service.AuthService;
 import com.booking.config.JwtService;
-import com.booking.dto.UserDTO;
+import com.booking.dto.request.LoginRequest;
+import com.booking.dto.request.RegisterRequest;
 import com.booking.dto.response.LoginResponse;
 import com.booking.entity.User;
 import com.booking.exception.UserException;
@@ -27,9 +28,9 @@ public class AuthController {
     @PostMapping("/register")
     @Operation(summary = "User register", description = "Register a new user, name - unique, req;" +
             " pass - req; email - unique, req; phone - unique, req")
-    public ResponseEntity<?> register(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         try {
-            authService.register(userDTO);
+            authService.register(request);
             return ResponseEntity.ok(Map.of("message", "Registration successful"));
         } catch (UserException e) {
             return ResponseEntity.status(400).body(Map.of("error", e.getMessage()));
@@ -40,8 +41,8 @@ public class AuthController {
 
     @PostMapping("/login")
     @Operation(summary = "User login", description = "Existing user log in, just username and password")
-    public ResponseEntity<LoginResponse> login(@RequestBody UserDTO userDTO) {
-        User authenticatedUser = authService.login(userDTO);
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        User authenticatedUser = authService.login(request);
         String token = jwtService.generateToken(authenticatedUser);
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(token);

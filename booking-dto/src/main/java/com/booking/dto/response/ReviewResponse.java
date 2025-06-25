@@ -1,4 +1,4 @@
-package com.booking.dto;
+package com.booking.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,10 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDTO {
-    private Long id;
-    private String text;
-    private Double rating;
+public class ReviewResponse {
+
     private LocalDate reviewDate;
-    private UserReviewDTO userReview;
+    private String reviewText;
+    private String reviewer;
+    private Double rating;
 }

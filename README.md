@@ -21,8 +21,6 @@ The project is split into four Maven modules for clean separation of concerns:
 ## 🏗️ Architecture Highlights
 * **Spring Boot 3 / Maven multi-module**
 * **PostgreSQL + Liquibase** migrations (scripts live in `booking-entity/src/main/resources/db/changelog`)
-* Design patterns already applied: **Abstract Factory**, **Builder**, **Prototype**, **Strategy**, **Proxy**, **Template Method**
-* Hexagonal/Clean-Architecture inclination (core domain in `entity`, application services in `api`, infrastructure adapters in `security`/`api`)
 * **OpenAPI 3** (springdoc) auto-generates live API docs at `/swagger-ui.html`
 ---
 

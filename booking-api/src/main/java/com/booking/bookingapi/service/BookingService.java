@@ -1,12 +1,12 @@
 package com.booking.bookingapi.service;
 
-import com.booking.dto.BookingDTO;
+import com.booking.dto.request.BookingRequest;
 import com.booking.dto.request.AttractionBookingRequest;
 
 import java.util.List;
 
 public interface BookingService<T> {
-    default void validateAndBook(String token, BookingDTO bookingDTO) {}
+    default void validateAndBook(String token, BookingRequest bookingDTO) {}
 
     List<T> getAllBookings(String jwt);
 

@@ -1,17 +1,18 @@
 package com.booking.bookingapi.service.impl;
 
 import com.booking.bookingapi.service.AuthService;
-import com.booking.dto.UserDTO;
+import com.booking.dto.request.LoginRequest;
+import com.booking.dto.request.RegisterRequest;
 import com.booking.entity.User;
 import com.booking.exception.UserException;
 import com.booking.repository.UserRepository;
 import com.booking.repository.UserRoleRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -23,42 +24,31 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
 
     @Override
-    public void register(UserDTO userDTO) {
-        Optional<User> user = userRepository.findByUsername(userDTO.getUsername());
-
-        if (user.isPresent())
-            throw new UserException("Username already in use");
-
-        user = userRepository.findByEmail(userDTO.getEmail());
-
-        if (user.isPresent())
-            throw new UserException("Email already in use");
-
-        user = userRepository.findByPhoneNumber(userDTO.getPhone());
-
-        if (user.isPresent())
-            throw new UserException("Phone number already in use");
-
-        userRepository.save(User.builder()
-                        .username(userDTO.getUsername())
-                        .password(passwordEncoder.encode(userDTO.getPassword()))
-                        .phoneNumber(userDTO.getPhone())
-                        .email(userDTO.getEmail())
-                        .role(userRoleRepository.findById(1L)
-                                .orElseThrow(() -> new UserException("Role Not Found")))
-                .build());
+    public void register(RegisterRequest request) {
+       try {
+           userRepository.save(User.builder()
+                           .email(request.getEmail())
+                           .username(request.getUsername())
+                           .password(passwordEncoder.encode(request.getPassword()))
+                           .role(userRoleRepository.findByRoleName("User"))
+                           .phoneNumber(request.getPhone())
+                   .build());
+       }
+       catch (DataIntegrityViolationException e) {
+           throw new UserException("Username / email / phone already in use");
+       }
     }
 
     @Override
-    public User login(UserDTO input) {
+    public User login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        input.getUsername(),
-                        input.getPassword()
+                        request.getUsername(),
+                        request.getPassword()
                 )
         );
 
-        return userRepository.findByUsername(input.getUsername())
+        return userRepository.findByUsername(request.getUsername())
                 .orElseThrow();
     }
 }
