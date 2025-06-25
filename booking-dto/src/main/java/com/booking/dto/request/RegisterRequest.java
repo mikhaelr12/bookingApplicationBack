@@ -1,12 +1,9 @@
-package com.booking.dto;
+package com.booking.dto.request;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-public class UserDTO {
-
+public class RegisterRequest {
     private Long id;
     private String username;
     private String password;

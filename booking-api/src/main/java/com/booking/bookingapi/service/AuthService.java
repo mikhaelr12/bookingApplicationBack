@@ -1,10 +1,11 @@
 package com.booking.bookingapi.service;
 
-import com.booking.dto.UserDTO;
+import com.booking.dto.request.LoginRequest;
+import com.booking.dto.request.RegisterRequest;
 import com.booking.entity.User;
 
 public interface AuthService {
-    void register(UserDTO userDTO);
+    void register(RegisterRequest request);
 
-    User login(UserDTO userDTO);
+    User login(LoginRequest request);
 }
